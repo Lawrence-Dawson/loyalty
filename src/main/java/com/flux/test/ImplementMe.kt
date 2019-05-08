@@ -27,5 +27,5 @@ interface ImplementMe {
      *
      * Should return one `StateResponse` instance for each scheme
      */
-    fun state(accountId: AccountId): List<StateResponse>
+//    fun state(accountId: AccountId): List<StateResponse>
 }
