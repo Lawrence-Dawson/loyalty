@@ -7,7 +7,7 @@ class Loyalty(schemes: List<Scheme>) : ImplementMe {
 
     override fun apply(receipt: Receipt): List<ApplyResponse> {
         val merchant = this.getMerchant(receipt.merchantId)
-        
+
         return listOf(ApplyResponse(schemes.first().id, 1, 1, listOf()))
     }
 
@@ -17,7 +17,7 @@ class Loyalty(schemes: List<Scheme>) : ImplementMe {
         }
 
         val merchantSchemes = schemes.filter { scheme -> scheme.merchantId == merchantId }
-        val merchant = Merchant(merchantId, merchantSchemes)
+        val merchant = Merchant(merchantId)
 
         merchants.add(merchant)
 
