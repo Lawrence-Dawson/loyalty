@@ -4,15 +4,17 @@ import com.flux.test.ImplementMe
 class Loyalty(schemes: List<Scheme>) : ImplementMe {
     override var schemes = schemes
     val merchants = mutableListOf<Merchant>()
-    val response = mutableListOf<ApplyResponse>()
+    val applyResponse = mutableListOf<ApplyResponse>()
 
     override fun apply(receipt: Receipt): List<ApplyResponse> {
         val merchant = this.getMerchant(receipt.merchantId)
         val merchantSchemes = this.getMerchantSchemes(merchant)
 
-        merchantSchemes.forEach { scheme -> this.applyReceipt(scheme, merchant, receipt) }
+        merchantSchemes.forEach { scheme ->
+            this.applyReceipt(scheme, merchant, receipt)
+        }
 
-        return listOf(ApplyResponse(schemes.first().id, 1, 1, listOf()))
+        return this.applyResponse
     }
 
     private fun getMerchant(merchantId: MerchantId): Merchant {
@@ -21,7 +23,6 @@ class Loyalty(schemes: List<Scheme>) : ImplementMe {
         }
 
         val merchant = Merchant(merchantId)
-
         merchants.add(merchant)
 
         return merchant
@@ -33,8 +34,29 @@ class Loyalty(schemes: List<Scheme>) : ImplementMe {
 
     private fun applyReceipt(scheme: Scheme, merchant: Merchant, receipt: Receipt)
     {
+        val skuMap = receipt.items.groupBy { i -> i.sku }
         var schemeAccount = merchant.getSchemeAccount(scheme, receipt)
-        println(schemeAccount)
+
+        skuMap.forEach { (key, items) ->
+            val sku = items.first()
+            var stampCount = items.count()
+
+            schemeAccount.currentStampCount += stampCount
+
+            if (schemeAccount.currentStampCount >= scheme.maxStamps) {
+                stampCount -= 1
+                val cheapestItem = items.minBy { i -> i.price }
+                schemeAccount.currentStampCount = 0
+                schemeAccount.paymentsGiven.add(cheapestItem!!.price)
+            }
+
+            this.applyResponse.add(
+                    ApplyResponse(scheme.id,
+                    schemeAccount.currentStampCount,
+                    stampCount,
+                    schemeAccount.paymentsGiven)
+            )
+        }
     }
 
 
