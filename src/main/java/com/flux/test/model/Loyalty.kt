@@ -3,61 +3,33 @@ import com.flux.test.ImplementMe
 
 class Loyalty(schemes: List<Scheme>) : ImplementMe {
     override var schemes = schemes
-    val merchants = mutableListOf<Merchant>()
-    val applyResponse = mutableListOf<ApplyResponse>()
+    val responses = mutableListOf<ApplyResponse>()
+    val accounts = mutableListOf<Account>()
 
     override fun apply(receipt: Receipt): List<ApplyResponse> {
-        val merchant = this.getMerchant(receipt.merchantId)
+
         val merchantSchemes = this.getMerchantSchemes(merchant)
 
-        merchantSchemes.forEach { scheme ->
-            this.applyReceipt(scheme, merchant, receipt)
+        for (scheme in merchantSchemes) {
+            var account = this.getAccount(receipt, scheme)
+            this.accounts.add(account)
         }
 
-        return this.applyResponse
+//        return responses
+
+        return listOf(ApplyResponse(accounts.first().id, 1, 1, mutableListOf()))
     }
 
-    private fun getMerchant(merchantId: MerchantId): Merchant {
-        if (merchants.any { m -> m.id == merchantId }) {
-            return merchants.filter { m -> m.id == merchantId }.first()
+    private fun getMerchantSchemes(merchantId: MerchantId): List<Scheme> {
+        return schemes.filter { s -> s.merchantId == merchantId }
+    }
+
+    private fun getAccount(receipt: Receipt, scheme: Scheme): Account {
+        val matches = accounts.filter { a ->
+            a.schemeId == scheme.id && a.id == receipt.accountId
         }
 
-        val merchant = Merchant(merchantId)
-        merchants.add(merchant)
-
-        return merchant
+        if (matches.isNotEmpty()) return matches.first()
+        return Account(receipt.accountId, scheme.id, 0, mutableListOf())
     }
-
-    private fun getMerchantSchemes(merchant: Merchant): List<Scheme> {
-        return schemes.filter { s -> s.merchantId == merchant.id }
-    }
-
-    private fun applyReceipt(scheme: Scheme, merchant: Merchant, receipt: Receipt)
-    {
-        val skuMap = receipt.items.groupBy { i -> i.sku }
-        var schemeAccount = merchant.getSchemeAccount(scheme, receipt)
-
-        skuMap.forEach { (key, items) ->
-            val sku = items.first()
-            var stampCount = items.count()
-
-            schemeAccount.currentStampCount += stampCount
-
-            if (schemeAccount.currentStampCount >= scheme.maxStamps) {
-                stampCount -= 1
-                val cheapestItem = items.minBy { i -> i.price }
-                schemeAccount.currentStampCount = 0
-                schemeAccount.paymentsGiven.add(cheapestItem!!.price)
-            }
-
-            this.applyResponse.add(
-                    ApplyResponse(scheme.id,
-                    schemeAccount.currentStampCount,
-                    stampCount,
-                    schemeAccount.paymentsGiven)
-            )
-        }
-    }
-
-
 }
