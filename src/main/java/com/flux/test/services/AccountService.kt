@@ -6,7 +6,7 @@ import com.flux.test.model.AccountId
 class AccountService() {
     var accounts = mutableListOf<Account>()
 
-    private fun getAccount(accountId: AccountId): Account {
+    fun getAccount(accountId: AccountId): Account {
         var account = accounts
                 .stream()
                 .filter({ a -> a.id == accountId })

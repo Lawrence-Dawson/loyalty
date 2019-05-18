@@ -23,17 +23,17 @@ class LoyaltySpec : StringSpec() {
             response.first().paymentsGiven shouldHaveSize 0
         }
 
-        "Triggers a redemption" {
-            val receipt =
-                Receipt(merchantId = merchantId, accountId = accountId, items = 1.rangeTo(5).map { Item("1", 100, 1) })
-            val response = implementation.apply(receipt)
-
-            response shouldHaveSize (1)
-            response.first().stampsGiven shouldBe 4
-            response.first().currentStampCount shouldBe 0
-            response.first().paymentsGiven shouldHaveSize 1
-            response.first().paymentsGiven.first() shouldBe 100
-        }
+//        "Triggers a redemption" {
+//            val receipt =
+//                Receipt(merchantId = merchantId, accountId = accountId, items = 1.rangeTo(5).map { Item("1", 100, 1) })
+//            val response = implementation.apply(receipt)
+//
+//            response shouldHaveSize (1)
+//            response.first().stampsGiven shouldBe 4
+//            response.first().currentStampCount shouldBe 0
+//            response.first().paymentsGiven shouldHaveSize 1
+//            response.first().paymentsGiven.first() shouldBe 100
+//        }
 
 //        "Stores the current state for an account" {
 //            val receipt = Receipt(merchantId = merchantId, accountId = accountId, items = listOf(Item("1", 100, 1)))

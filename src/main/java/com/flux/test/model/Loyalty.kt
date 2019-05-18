@@ -1,5 +1,6 @@
 package com.flux.test.model
 import com.flux.test.ImplementMe
+import com.flux.test.services.AccountService
 
 class Loyalty(schemes: List<Scheme>) : ImplementMe {
     override var schemes = schemes
@@ -10,8 +11,8 @@ class Loyalty(schemes: List<Scheme>) : ImplementMe {
         val merchantSchemes = this.getMerchantSchemes(receipt.merchantId)
 
         for (scheme in merchantSchemes) {
-            var account = this.getAccount(receipt, scheme)
-            this.accounts.add(account)
+            var account = AccountService().getAccount(receipt.accountId)
+            println(account)
         }
 
 //        return responses
