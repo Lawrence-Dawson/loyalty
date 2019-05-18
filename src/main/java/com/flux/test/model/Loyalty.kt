@@ -1,6 +1,7 @@
 package com.flux.test.model
 import com.flux.test.ImplementMe
 import com.flux.test.services.AccountService
+import com.flux.test.services.ReceiptService
 
 class Loyalty(schemes: List<Scheme>) : ImplementMe {
     override var schemes = schemes
@@ -12,6 +13,8 @@ class Loyalty(schemes: List<Scheme>) : ImplementMe {
 
         applicableSchemes.forEach {
             var account = AccountService().getAccount(receipt.accountId)
+            account = ReceiptService().applyReceipt(account, it, receipt)
+            println(account)
         }
 
 
