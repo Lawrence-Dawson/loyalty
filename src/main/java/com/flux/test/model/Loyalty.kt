@@ -8,19 +8,20 @@ class Loyalty(schemes: List<Scheme>) : ImplementMe {
 
     override fun apply(receipt: Receipt): List<ApplyResponse> {
 
-        val merchantSchemes = this.getMerchantSchemes(receipt.merchantId)
+        val applicableSchemes = this.getSchemes(receipt.merchantId)
 
-        for (scheme in merchantSchemes) {
+        applicableSchemes.forEach {
             var account = AccountService().getAccount(receipt.accountId)
-            println(account)
         }
+
+
 
 //        return responses
 
         return listOf(ApplyResponse(accounts.first().id, 1, 1, mutableListOf()))
     }
 
-    private fun getMerchantSchemes(merchantId: MerchantId): List<Scheme> {
+    private fun getSchemes(merchantId: MerchantId): List<Scheme> {
         return schemes.filter { s -> s.merchantId == merchantId }
     }
 }
