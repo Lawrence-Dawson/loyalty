@@ -91,6 +91,31 @@ class LoyaltySpec : StringSpec() {
             response.first().currentStampCount shouldBe 3
             response.first().paymentsGiven shouldHaveSize 0
         }
+
+        "Cheapest item in scheme given away in redemption" {
+            val schemes = listOf<Scheme>(
+                Scheme(schemeId, merchantId, 2, listOf("1", "2", "3"))
+            )
+
+            val implementation: ImplementMe = Loyalty(schemes)
+
+            var items = listOf(
+                Item("1", 100, 1),
+                Item("2", 50, 1),
+                Item("3", 300, 1)
+            )
+
+            val receipt =
+                Receipt(merchantId = merchantId, accountId = accountId, items = items)
+
+            val response = implementation.apply(receipt)
+
+            response shouldHaveSize (1)
+            response.first().stampsGiven shouldBe 2
+            response.first().currentStampCount shouldBe 0
+            response.first().paymentsGiven shouldHaveSize 1
+            response.first().paymentsGiven.first() shouldBe 50
+        }
     }
 
     override fun isolationMode() = IsolationMode.InstancePerTest
