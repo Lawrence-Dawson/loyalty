@@ -7,5 +7,6 @@ data class Stamp (
     val sku: String,
     val amount: Long,
     val schemeId: SchemeId,
-    val receiptId: ReceiptId
+    val receiptId: ReceiptId,
+    var claimed: Boolean = false
 )
