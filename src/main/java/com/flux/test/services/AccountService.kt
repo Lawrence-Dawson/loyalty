@@ -13,7 +13,10 @@ class AccountService() {
                 .findFirst()
                 .orElse(null)
 
-        if (account == null) account = Account(accountId)
+        if (account == null) {
+            account = Account(accountId)
+            accounts.add(account)
+        }
 
         return account
     }
