@@ -77,7 +77,7 @@ class LoyaltySpec : StringSpec() {
             }
         }
 
-        "Applies multiple receipts" {
+        "Applies multiple receipts to same merchant" {
             val receipt1 = Receipt(merchantId = merchantId, accountId = accountId, items = listOf(Item("1", 100, 1)))
             val receipt2 = Receipt(merchantId = merchantId, accountId = accountId, items = listOf(Item("1", 100, 1)))
             val receipt3 = Receipt(merchantId = merchantId, accountId = accountId, items = listOf(Item("1", 100, 1)))
@@ -90,6 +90,37 @@ class LoyaltySpec : StringSpec() {
             response.first().stampsGiven shouldBe 1
             response.first().currentStampCount shouldBe 3
             response.first().paymentsGiven shouldHaveSize 0
+        }
+
+        "Applies multiple receipts to different merchant" {
+            val merchant1 = UUID.randomUUID()
+            val merchant2 = UUID.randomUUID()
+            val merchant3 = UUID.randomUUID()
+
+            val receipt1 = Receipt(merchantId = merchant1, accountId = accountId, items = listOf(Item("1", 100, 1)))
+            val receipt2 = Receipt(merchantId = merchant2, accountId = accountId, items = listOf(Item("1", 100, 1)))
+            val receipt3 = Receipt(merchantId = merchant3, accountId = accountId, items = listOf(Item("1", 100, 1)))
+
+            val schemes = listOf<Scheme>(
+                Scheme(schemeId, merchant1, 4, listOf("1")),
+                Scheme(schemeId, merchant2, 4, listOf("2")),
+                Scheme(schemeId, merchant3, 4, listOf("3"))
+            )
+
+            val implementation: ImplementMe = Loyalty(schemes)
+
+            implementation.apply(receipt1)
+            implementation.apply(receipt2)
+            implementation.apply(receipt3)
+
+            val response = implementation.state(accountId)
+            println(response)
+            response shouldHaveSize (3)
+
+            response.forEach { r ->
+                r.currentStampCount shouldBe 1
+                r.payments shouldHaveSize 0
+            }
         }
 
         "Cheapest item in scheme given away in redemption" {
@@ -149,7 +180,7 @@ class LoyaltySpec : StringSpec() {
             implementation.apply(receipt)
 
             val response = implementation.state(accountId)
-  
+
             response shouldHaveSize (2)
 
             response.first().currentStampCount shouldBe 1

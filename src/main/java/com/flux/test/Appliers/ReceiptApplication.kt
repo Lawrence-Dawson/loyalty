@@ -6,10 +6,8 @@ import java.util.*
 class ReceiptApplication(var account: Account, val scheme: Scheme, val receipt: Receipt) {
 
     fun execute() : Account {
-
         if (this.account.isFirstApplication(this.scheme, this.receipt)) {
             val items = this.getValidItems()
-
             items.forEach { item ->
                 if (this.account.isNotAppliedToOtherScheme(receipt, this.scheme, item)) {
                     this.addStamp(item)
@@ -37,7 +35,6 @@ class ReceiptApplication(var account: Account, val scheme: Scheme, val receipt: 
         val stamps = this.account.getStamps(this.scheme)
 
         if (this.account.hasTooManyStamps(this.scheme)) {
-
             val cheapestStamp = this.account.getCheapestStamp(this.scheme)
 
             this.account.addPayment(
