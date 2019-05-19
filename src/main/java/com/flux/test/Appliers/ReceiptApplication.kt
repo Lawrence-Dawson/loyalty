@@ -33,7 +33,7 @@ class ReceiptApplication(var account: Account, val scheme: Scheme, val receipt: 
     private fun addAnyPayment() {
         val stamps = this.account.getStamps(this.scheme)
 
-        if (this.hasTooManyStamps(stamps)) {
+        if (this.account.hasTooManyStamps(this.scheme)) {
 
             val cheapestStamp = this.account.getCheapestStamp(this.scheme)
 
@@ -49,10 +49,6 @@ class ReceiptApplication(var account: Account, val scheme: Scheme, val receipt: 
             this.account.removeStamp(cheapestStamp)
             this.account.setStampsApplied(this.scheme)
         }
-    }
-
-    private fun hasTooManyStamps(stamps: List<Stamp>): Boolean {
-        return stamps.count() > this.scheme.maxStamps
     }
 
     private fun getValidItems(): List<Item> {

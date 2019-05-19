@@ -35,16 +35,16 @@ class LoyaltySpec : StringSpec() {
             response.first().paymentsGiven.first() shouldBe 100
         }
 
-//        "Stores the current state for an account" {
-//            val receipt = Receipt(merchantId = merchantId, accountId = accountId, items = listOf(Item("1", 100, 1)))
-//
-//            implementation.apply(receipt)
-//            val response = implementation.state(accountId)
-//
-//            response shouldHaveSize (1)
-//            response.first().currentStampCount shouldBe 1
-//            response.first().payments shouldHaveSize 0
-//        }
+        "Stores the current state for an account" {
+            val receipt = Receipt(merchantId = merchantId, accountId = accountId, items = listOf(Item("1", 100, 1)))
+
+            implementation.apply(receipt)
+            val response = implementation.state(accountId)
+
+            response shouldHaveSize (1)
+            response.first().currentStampCount shouldBe 1
+            response.first().payments shouldHaveSize 0
+        }
     }
 
     override fun isolationMode() = IsolationMode.InstancePerTest

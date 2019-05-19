@@ -29,6 +29,12 @@ class Account(val id: AccountId) {
         }.map { p -> p.amount }.toList()
     }
 
+    fun getPayments(scheme: Scheme): List<Long> {
+        return this.payments.filter { p ->
+            p.schemeId == scheme.id
+        }.map { p -> p.amount }.toList()
+    }
+
     fun getCheapestStamp(scheme: Scheme): Stamp? {
         val stamps = this.getStamps(scheme)
         return stamps.minBy { s -> s.amount }
@@ -58,5 +64,9 @@ class Account(val id: AccountId) {
         return !this.getStamps(scheme).any { s ->
             s.receiptId == receipt.id
         }
+    }
+
+    fun hasTooManyStamps(scheme: Scheme): Boolean {
+        return this.getStampCount(scheme) > scheme.maxStamps
     }
 }

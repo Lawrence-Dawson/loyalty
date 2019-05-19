@@ -20,4 +20,11 @@ class AccountService() {
 
         return account
     }
+
+    fun updateAccount(account: Account) {
+        this.accounts.removeAll { a ->
+            a.id == account.id
+        }
+        this.accounts.add(account)
+    }
 }
