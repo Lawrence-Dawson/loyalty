@@ -45,6 +45,52 @@ class LoyaltySpec : StringSpec() {
             response.first().currentStampCount shouldBe 1
             response.first().payments shouldHaveSize 0
         }
+
+        "Multiple schemes can be running for the same merchant" {
+            val schemes = listOf<Scheme>(
+                Scheme(schemeId, merchantId, 4, listOf("1")),
+                Scheme(schemeId, merchantId, 4, listOf("2")),
+                Scheme(schemeId, merchantId, 4, listOf("3")),
+                Scheme(schemeId, merchantId, 4, listOf("4"))
+            )
+
+            val implementation: ImplementMe = Loyalty(schemes)
+
+            var items = listOf(
+                Item("1", 100, 1),
+                Item("2", 200, 1),
+                Item("3", 300, 1),
+                Item("4", 400, 1)
+            )
+
+            val receipt = Receipt(merchantId = merchantId, accountId = accountId, items = items)
+
+            implementation.apply(receipt)
+            val response = implementation.state(accountId)
+
+            response shouldHaveSize (4)
+            response.forEach { r ->
+                r.currentStampCount shouldBe 1
+            }
+            response.forEach { r ->
+                r.payments shouldHaveSize 0
+            }
+        }
+
+        "Applies multiple receipts" {
+            val receipt1 = Receipt(merchantId = merchantId, accountId = accountId, items = listOf(Item("1", 100, 1)))
+            val receipt2 = Receipt(merchantId = merchantId, accountId = accountId, items = listOf(Item("1", 100, 1)))
+            val receipt3 = Receipt(merchantId = merchantId, accountId = accountId, items = listOf(Item("1", 100, 1)))
+
+            implementation.apply(receipt1)
+            implementation.apply(receipt2)
+            val response = implementation.apply(receipt3)
+
+            response shouldHaveSize (1)
+            response.first().stampsGiven shouldBe 1
+            response.first().currentStampCount shouldBe 3
+            response.first().paymentsGiven shouldHaveSize 0
+        }
     }
 
     override fun isolationMode() = IsolationMode.InstancePerTest

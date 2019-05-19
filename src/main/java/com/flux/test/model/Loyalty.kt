@@ -11,17 +11,17 @@ class Loyalty(schemes: List<Scheme>) : ImplementMe {
         val applicableSchemes = this.getSchemes(receipt.merchantId)
         val responses = mutableListOf<ApplyResponse>()
 
-        applicableSchemes.forEach { s ->
+        applicableSchemes.forEach { scheme ->
             var account = this.accountService.getAccount(receipt.accountId)
 
-            account = ReceiptApplication(account, s, receipt).execute()
+            account = ReceiptApplication(account, scheme, receipt).execute()
 
             accountService.updateAccount(account)
 
             responses.add(
                 ApplyResponse(
-                    s.id,
-                    account.getStampCount(s),
+                    scheme.id,
+                    account.getStampCount(scheme),
                     account.getStampCount(receipt),
                     account.getPayments(receipt)
                 )
@@ -34,13 +34,13 @@ class Loyalty(schemes: List<Scheme>) : ImplementMe {
     override fun state(accountId: AccountId): List<StateResponse> {
         val responses = mutableListOf<StateResponse>()
 
-        this.schemes.forEach { s ->
+        this.schemes.forEach { scheme ->
             val account = this.accountService.getAccount(accountId)
             responses.add(
                 StateResponse(
-                    s.id,
-                    account.getStampCount(s),
-                    account.getPayments(s)
+                    scheme.id,
+                    account.getStampCount(scheme),
+                    account.getPayments(scheme)
                 )
             )
         }
