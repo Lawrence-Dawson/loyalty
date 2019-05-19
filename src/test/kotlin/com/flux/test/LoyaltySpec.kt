@@ -116,6 +116,19 @@ class LoyaltySpec : StringSpec() {
             response.first().paymentsGiven shouldHaveSize 1
             response.first().paymentsGiven.first() shouldBe 50
         }
+
+        "Each item in a receipt can be used only once" {
+            val receipt = Receipt(merchantId = merchantId, accountId = accountId, items = listOf(Item("1", 100, 1)))
+
+            implementation.apply(receipt)
+            implementation.apply(receipt)
+
+            val response = implementation.state(accountId)
+
+            response shouldHaveSize (1)
+            response.first().currentStampCount shouldBe 1
+            response.first().payments shouldHaveSize 0
+        }
     }
 
     override fun isolationMode() = IsolationMode.InstancePerTest
