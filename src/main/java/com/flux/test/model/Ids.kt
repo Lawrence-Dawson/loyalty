@@ -6,3 +6,4 @@ typealias AccountId = UUID
 typealias ReceiptId = UUID
 typealias MerchantId = UUID
 typealias SchemeId = UUID
+typealias stampId = UUID

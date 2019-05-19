@@ -1,6 +1,7 @@
 package com.flux.test.Appliers
 
 import com.flux.test.model.*
+import java.util.*
 
 class StampApplier(account: Account, scheme: Scheme, receipt: Receipt) : Applier(account, scheme, receipt) {
     var applications = mutableListOf<Stamp>()
@@ -11,7 +12,13 @@ class StampApplier(account: Account, scheme: Scheme, receipt: Receipt) : Applier
 
             items.forEach { i ->
                 this.applications.add(
-                    Stamp(i.sku, i.price, this.scheme.id, this.receipt.id)
+                    Stamp(
+                        UUID.randomUUID(),
+                        i.sku,
+                        i.price,
+                        this.scheme.id,
+                        this.receipt.id
+                    )
                 )
             }
         }
