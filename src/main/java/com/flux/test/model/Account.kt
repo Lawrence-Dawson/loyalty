@@ -5,14 +5,14 @@ class Account(val id: AccountId) {
     private var stamps = mutableListOf<Stamp>()
     private var payments = mutableListOf<Payment>()
 
-    fun getStampCount(receipt: Receipt): Int {
+    fun getStampsGivenCount(receipt: Receipt): Int {
         return this.stamps.filter { s ->
             s.receiptId == receipt.id &&
             s.status != "paid"
         }.count()
     }
 
-    fun getStampCount(scheme: Scheme): Int {
+    fun getCurrentStampCount(scheme: Scheme): Int {
         return this.stamps.filter { s ->
             s.schemeId == scheme.id && s.status == "active"
         }.count()
@@ -30,7 +30,7 @@ class Account(val id: AccountId) {
         }
     }
 
-    fun getPayments(receipt: Receipt): List<Long> {
+    fun getPaymentsGiven(receipt: Receipt): List<Long> {
          return this.payments.filter { p ->
             p.receiptId == receipt.id
         }.map { p -> p.amount }.toList()
@@ -84,6 +84,6 @@ class Account(val id: AccountId) {
     }
 
     fun hasTooManyStamps(scheme: Scheme): Boolean {
-        return this.getStampCount(scheme) > scheme.maxStamps
+        return this.getCurrentStampCount(scheme) > scheme.maxStamps
     }
 }

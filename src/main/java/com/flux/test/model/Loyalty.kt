@@ -20,9 +20,9 @@ class Loyalty(schemes: List<Scheme>) : ImplementMe {
             responses.add(
                 ApplyResponse(
                     scheme.id,
-                    account.getStampCount(scheme),
-                    account.getStampCount(receipt),
-                    account.getPayments(receipt)
+                    account.getCurrentStampCount(scheme),
+                    account.getStampsGivenCount(receipt),
+                    account.getPaymentsGiven(receipt)
                 )
             )
         }
@@ -38,7 +38,7 @@ class Loyalty(schemes: List<Scheme>) : ImplementMe {
             responses.add(
                 StateResponse(
                     scheme.id,
-                    account.getStampCount(scheme),
+                    account.getCurrentStampCount(scheme),
                     account.getPayments(scheme)
                 )
             )
