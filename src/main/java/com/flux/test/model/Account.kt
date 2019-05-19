@@ -7,13 +7,14 @@ class Account(val id: AccountId) {
 
     fun getStampCount(receipt: Receipt): Int {
         return this.stamps.filter { s ->
-            s.receiptId == receipt.id
+            s.receiptId == receipt.id &&
+            s.status != "paid"
         }.count()
     }
 
     fun getStampCount(scheme: Scheme): Int {
         return this.stamps.filter { s ->
-            s.schemeId == scheme.id && !s.claimed
+            s.schemeId == scheme.id && s.status == "active"
         }.count()
     }
 
@@ -46,9 +47,9 @@ class Account(val id: AccountId) {
         return stamps.minBy { s -> s.amount }
     }
 
-    fun setStampsApplied(scheme: Scheme) {
+    fun setStampsInactive(scheme: Scheme) {
         this.getStamps(scheme).forEach { s ->
-            s.claimed = true
+            s.status = "inactive"
         }
     }
 
@@ -60,10 +61,12 @@ class Account(val id: AccountId) {
         this.payments.add(payment)
     }
 
-    fun removeStamp(stamp: Stamp) {
+    fun setStampPaid(stamp: Stamp) {
         this.stamps.removeAll { s ->
             s.id == stamp.id
         }
+        stamp.status = "paid"
+        this.stamps.add(stamp)
     }
 
     fun isFirstApplication(scheme: Scheme, receipt: Receipt): Boolean {

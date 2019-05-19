@@ -4,14 +4,25 @@
     <list default="true" id="17ef0e04-8f0f-4702-ac62-f6e50c8d5bb3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/com/flux/test/Appliers/ReceiptApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/flux/test/Appliers/ReceiptApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/flux/test/model/Account$removeStamp$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/flux/test/model/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/flux/test/model/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/flux/test/model/Loyalty.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/flux/test/model/Loyalty.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/com/flux/test/model/Stamp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/flux/test/model/Stamp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/flux/test/LoyaltySpec$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/com/flux/test/LoyaltySpec$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/classes/com/flux/test/LoyaltySpec$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/com/flux/test/LoyaltySpec$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/com/flux/test/LoyaltySpec$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/com/flux/test/LoyaltySpec$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/com/flux/test/LoyaltySpec$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/com/flux/test/LoyaltySpec$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/com/flux/test/LoyaltySpec$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/com/flux/test/LoyaltySpec$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/com/flux/test/LoyaltySpec$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/com/flux/test/LoyaltySpec$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/flux/test/LoyaltySpec$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/flux/test/LoyaltySpec$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/flux/test/LoyaltySpec$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/flux/test/LoyaltySpec$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/flux/test/LoyaltySpec$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/flux/test/LoyaltySpec$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/com/flux/test/LoyaltySpec$9.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/classes/com/flux/test/LoyaltySpec$Companion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/com/flux/test/LoyaltySpec$Companion.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/classes/com/flux/test/LoyaltySpec.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/com/flux/test/LoyaltySpec.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/flux/test/Appliers/ReceiptApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flux/test/Appliers/ReceiptApplication.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flux/test/model/Account.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flux/test/model/Account.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flux/test/model/Loyalty.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flux/test/model/Loyalty.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/flux/test/model/Stamp.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/flux/test/model/Stamp.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/com/flux/test/LoyaltySpec.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/com/flux/test/LoyaltySpec.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -38,8 +49,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/test/kotlin/com/flux/test/LoyaltySpec.kt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="413">
-                  <caret line="189" column="9" selection-start-line="163" selection-start-column="5" selection-end-line="189" selection-end-column="9" />
+                <state relative-caret-position="235">
+                  <caret line="212" column="2" selection-start-line="212" selection-start-column="2" selection-end-line="212" selection-end-column="2" />
                   <folding>
                     <element signature="e#23#233#0" expanded="true" />
                   </folding>
@@ -47,14 +58,23 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/flux/test/Appliers/ReceiptApplication.kt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="145">
-                  <caret line="36" column="57" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="57" />
+                <state relative-caret-position="540">
+                  <caret line="48" column="55" selection-start-line="48" selection-start-column="55" selection-end-line="48" selection-end-column="55" />
                   <folding>
                     <element signature="e#32#79#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/flux/test/model/Loyalty.kt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="250">
+                  <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
                 </state>
               </provider>
             </entry>
@@ -63,32 +83,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/flux/test/model/Stamp.kt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/flux/test/services/AccountService.kt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-                  <folding>
-                    <element signature="e#32#103#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/flux/test/model/Account.kt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="344">
-                  <caret line="77" column="32" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
+                <state relative-caret-position="795">
+                  <caret line="53" column="5" lean-forward="true" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
                 </state>
               </provider>
             </entry>
@@ -107,15 +106,6 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="330">
                   <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/flux/test/model/Loyalty.kt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="45">
-                  <caret line="5" column="28" lean-forward="true" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
                 </state>
               </provider>
             </entry>
@@ -140,6 +130,11 @@
         <option value="Kotlin Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>prin</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -171,10 +166,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/flux/test/services/AccountService.kt" />
         <option value="$PROJECT_DIR$/src/main/java/com/flux/test/ImplementMe.kt" />
         <option value="$PROJECT_DIR$/src/main/java/com/flux/test/model/Stamp.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/com/flux/test/model/Loyalty.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/com/flux/test/model/Account.kt" />
         <option value="$PROJECT_DIR$/src/test/kotlin/com/flux/test/LoyaltySpec.kt" />
         <option value="$PROJECT_DIR$/src/main/java/com/flux/test/Appliers/ReceiptApplication.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/flux/test/model/Account.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/flux/test/model/Loyalty.kt" />
       </list>
     </option>
   </component>
@@ -335,34 +330,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="LoyaltySpec - 2019.05.19 at 21h 32m 36s.xml">
+    <history-entry file="LoyaltySpec - 2019.05.19 at 21h 58m 07s.xml">
       <configuration name="LoyaltySpec" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoyaltySpec - 2019.05.19 at 21h 36m 49s.xml">
+    <history-entry file="LoyaltySpec - 2019.05.19 at 22h 07m 09s.xml">
       <configuration name="LoyaltySpec" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoyaltySpec - 2019.05.19 at 21h 37m 28s.xml">
+    <history-entry file="LoyaltySpec - 2019.05.19 at 22h 09m 43s.xml">
       <configuration name="LoyaltySpec" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoyaltySpec - 2019.05.19 at 21h 38m 16s.xml">
+    <history-entry file="LoyaltySpec - 2019.05.19 at 22h 12m 02s.xml">
       <configuration name="LoyaltySpec" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoyaltySpec - 2019.05.19 at 21h 38m 50s.xml">
+    <history-entry file="LoyaltySpec - 2019.05.19 at 22h 12m 57s.xml">
       <configuration name="LoyaltySpec" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoyaltySpec - 2019.05.19 at 21h 39m 35s.xml">
+    <history-entry file="LoyaltySpec - 2019.05.19 at 22h 17m 06s.xml">
       <configuration name="LoyaltySpec" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoyaltySpec - 2019.05.19 at 21h 39m 52s.xml">
+    <history-entry file="LoyaltySpec - 2019.05.19 at 22h 18m 30s.xml">
       <configuration name="LoyaltySpec" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoyaltySpec - 2019.05.19 at 21h 44m 41s.xml">
+    <history-entry file="LoyaltySpec - 2019.05.19 at 22h 19m 24s.xml">
       <configuration name="LoyaltySpec" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoyaltySpec - 2019.05.19 at 21h 45m 20s.xml">
+    <history-entry file="LoyaltySpec - 2019.05.19 at 22h 19m 53s.xml">
       <configuration name="LoyaltySpec" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="LoyaltySpec - 2019.05.19 at 21h 46m 13s.xml">
+    <history-entry file="LoyaltySpec - 2019.05.19 at 22h 21m 21s.xml">
       <configuration name="LoyaltySpec" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -493,6 +488,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/flux/test/model/Receipt.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/flux/test/model/Stamp.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="33" lean-forward="true" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/flux/test/services/AccountService.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -503,17 +512,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/flux/test/model/Stamp.kt">
+    <entry file="file://$PROJECT_DIR$/src/test/kotlin/com/flux/test/LoyaltySpec.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        <state relative-caret-position="235">
+          <caret line="212" column="2" selection-start-line="212" selection-start-column="2" selection-end-line="212" selection-end-column="2" />
+          <folding>
+            <element signature="e#23#233#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/flux/test/model/ApplyResponse.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/flux/test/Appliers/ReceiptApplication.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="25" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="25" />
+        <state relative-caret-position="540">
+          <caret line="48" column="55" selection-start-line="48" selection-start-column="55" selection-end-line="48" selection-end-column="55" />
+          <folding>
+            <element signature="e#32#79#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -524,44 +539,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/flux/test/model/Receipt.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/flux/test/model/ApplyResponse.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="24" />
+        <state relative-caret-position="210">
+          <caret line="14" column="25" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/flux/test/model/Account.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="77" column="32" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/kotlin/com/flux/test/LoyaltySpec.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="189" column="9" selection-start-line="163" selection-start-column="5" selection-end-line="189" selection-end-column="9" />
-          <folding>
-            <element signature="e#23#233#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="795">
+          <caret line="53" column="5" lean-forward="true" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/flux/test/model/Loyalty.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="5" column="28" lean-forward="true" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/flux/test/Appliers/ReceiptApplication.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="36" column="57" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="57" />
-          <folding>
-            <element signature="e#32#79#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="250">
+          <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
         </state>
       </provider>
     </entry>

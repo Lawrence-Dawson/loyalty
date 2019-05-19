@@ -15,7 +15,6 @@ class Loyalty(schemes: List<Scheme>) : ImplementMe {
             var account = this.accountService.getAccount(receipt.accountId)
 
             account = ReceiptApplication(account, scheme, receipt).execute()
-
             accountService.updateAccount(account)
 
             responses.add(

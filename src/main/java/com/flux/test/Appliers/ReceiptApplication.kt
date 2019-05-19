@@ -46,8 +46,8 @@ class ReceiptApplication(var account: Account, val scheme: Scheme, val receipt: 
                 )
             )
 
-            this.account.removeStamp(cheapestStamp)
-            this.account.setStampsApplied(this.scheme)
+            this.account.setStampsInactive(this.scheme)
+            this.account.setStampPaid(stamp = cheapestStamp)
         }
     }
 

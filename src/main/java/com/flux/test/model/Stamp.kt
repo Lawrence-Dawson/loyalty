@@ -8,5 +8,5 @@ data class Stamp (
     val amount: Long,
     val schemeId: SchemeId,
     val receiptId: ReceiptId,
-    var claimed: Boolean = false
+    var status: String = "active"
 )
