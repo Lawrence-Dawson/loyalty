@@ -23,6 +23,12 @@ class Account(val id: AccountId) {
         }
     }
 
+    fun getStamps(receipt: Receipt): List<Stamp> {
+        return this.stamps.filter { s ->
+            s.receiptId == receipt.id
+        }
+    }
+
     fun getPayments(receipt: Receipt): List<Long> {
          return this.payments.filter { p ->
             p.receiptId == receipt.id
@@ -63,6 +69,14 @@ class Account(val id: AccountId) {
     fun isFirstApplication(scheme: Scheme, receipt: Receipt): Boolean {
         return !this.getStamps(scheme).any { s ->
             s.receiptId == receipt.id
+        }
+    }
+
+    fun isNotAppliedToOtherScheme(receipt: Receipt, scheme: Scheme, item: Item): Boolean {
+        return !this.getStamps(receipt).any { s ->
+            s.receiptId == receipt.id &&
+            s.sku == item.sku &&
+            s.schemeId != scheme.id
         }
     }
 

@@ -10,15 +10,18 @@ class ReceiptApplication(var account: Account, val scheme: Scheme, val receipt: 
         if (this.account.isFirstApplication(this.scheme, this.receipt)) {
             val items = this.getValidItems()
 
-            items.forEach { i ->
-                this.addStamp(i)
-                this.addAnyPayment()
+            items.forEach { item ->
+                if (this.account.isNotAppliedToOtherScheme(receipt, this.scheme, item)) {
+                    this.addStamp(item)
+                    this.addAnyPayment()
+                }
             }
         }
         return this.account
     }
 
     private fun addStamp(item: Item) {
+
         this.account.addStamp(
             Stamp(
                 UUID.randomUUID(),

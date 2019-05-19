@@ -129,6 +129,34 @@ class LoyaltySpec : StringSpec() {
             response.first().currentStampCount shouldBe 1
             response.first().payments shouldHaveSize 0
         }
+
+        "item cannot be used in multiple schemes" {
+            val schemeId2 = UUID.randomUUID()
+            val schemes = listOf<Scheme>(
+                Scheme(schemeId, merchantId, 4, listOf("1")),
+                Scheme(schemeId2, merchantId, 2, listOf("1"))
+            )
+
+            val implementation: ImplementMe = Loyalty(schemes)
+
+            var items = listOf(
+                Item("1", 100, 1)
+            )
+
+            val receipt =
+                Receipt(merchantId = merchantId, accountId = accountId, items = items)
+
+            implementation.apply(receipt)
+
+            val response = implementation.state(accountId)
+  
+            response shouldHaveSize (2)
+
+            response.first().currentStampCount shouldBe 1
+            response.first().payments shouldHaveSize 0
+            response.last().currentStampCount shouldBe 0
+            response.last().payments shouldHaveSize 0
+        }
     }
 
     override fun isolationMode() = IsolationMode.InstancePerTest
