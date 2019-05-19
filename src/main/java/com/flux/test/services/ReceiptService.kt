@@ -9,11 +9,11 @@ import com.flux.test.model.Scheme
 class ReceiptService() {
 
     fun applyReceipt(account: Account, scheme: Scheme, receipt: Receipt): Account {
-        var account = StampApplier(account, scheme)
-            .apply(receipt)
+        var account = StampApplier(account, scheme, receipt)
+            .execute()
 
-        account = PaymentApplier(account, scheme)
-            .apply(receipt)
+        account = PaymentApplier(account, scheme, receipt)
+            .execute()
 
         return account
     }

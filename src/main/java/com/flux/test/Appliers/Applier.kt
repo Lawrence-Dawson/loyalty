@@ -5,9 +5,11 @@ import com.flux.test.model.Receipt
 import com.flux.test.model.Scheme
 
 abstract class Applier(var account: Account, val scheme: Scheme, val receipt: Receipt) {
-    abstract var applications: MutableList<Applier>
 
     fun execute() : Account {
+        this.setApplications()
+        this.applyApplications()
+
         return this.account
     }
 
