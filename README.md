@@ -2,7 +2,7 @@
 
 ### This mini app is an attempt at the Flux Loyalty Test
 
-## As required:
+### As required:
 - The solution is written in Kotlin (I have not previously coded anything in Java or Kotlin)
 - The 'ImplementMe' interface has been implemented.
 - The 'schemes' property has been set.
@@ -21,7 +21,7 @@
 - A 'ReceiptApplication' which handles the application of a 'Receipt' to an 'Account'.
 
 ### Note:
-- Stamps always persist in memory database, when they become a payment they are given the status of 'repaid', when a payment is made the remaining stamps for that scheme are given the status of "inactive" this is good for analytics, we can always see which were created and which stamps were made into payments.
+Stamps always persist in memory database, when they become a payment they are given the status of 'repaid', when a payment is made the remaining stamps for that scheme are given the status of "inactive" this is good for analytics, we can always see which were created and which stamps were made into payments.
 
 ## Tests:
 #### The following test scenarios have been added and pass:
