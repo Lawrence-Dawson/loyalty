@@ -21,7 +21,10 @@
 - A 'ReceiptApplication' which handles the application of a 'Receipt' to an 'Account'.
 
 ### Note:
-Stamps always persist in memory, when they become a payment they are given the status of 'repaid', when a payment is made the remaining stamps for that scheme are given the status of "inactive" this is good for analytics, we can always see which were created and which stamps were made into payments.
+- Stamps always persist in memory
+- When Stamps become a payment they are given the status of 'repaid'
+- When a payment is made, the remaining stamps for that scheme are given the status of "inactive"
+- This is good for analytics, we can always see which stamps were created and which stamps became payments.
 
 ## Tests:
 #### The following test scenarios have been added and pass:
