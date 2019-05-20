@@ -1,4 +1,39 @@
 # Flux Loyalty Test
+
+##This mini app is an attempt at the Flux Loyalty Test, the original description of which can be found below.
+
+##As required:
+- The solution is written in Kotlin (I have not previously coded anything in Java or Kotlin)
+- The 'ImplementMe' interface has been implemented.
+- The 'schemes' property has been set.
+- The basic tests all pass.
+
+###Setup:
+- Clone this repository onto your local environment.
+- Open the 'loyalty' directory in an IDE capable of running a JVM such as IntelliJ or Netbeans.
+- Navigate to 'loyalty/src/test/kotlin/com.flux.test/LoyaltySpec' and run its tests.
+
+###Additions:
+- An 'Account' model with a list of 'Stamp' and 'Payment' to represent its relationship with them in the database.
+- A 'Payment' model that represents a payment to an 'Account'.
+- A 'Stamp' model that represents a stamp on a schemes 'Account'.
+- An 'AccountService' that can retrieve and update and 'Account'.
+- A 'ReceiptApplication' which handles the application of a 'Receipt' to an 'Account'.
+
+###Note:
+- Stamps always persist in memory database, when they become a payment they are given the status of 'repaid', when a payment is made the remaining stamps for that scheme are given the status of "inactive" this is good for analytics, we can always see which were created and which stamps were made into payments.
+
+##Tests:
+####The following test scenarios have been added and pass:
+- "Multiple schemes can be running for the same merchant"
+- "Applies multiple receipts to same merchant"
+- "Applies multiple receipts to different merchant"
+- "Cheapest item in scheme given away in redemption"
+- "Each item in a receipt can be used only once"
+- "Item cannot be used in multiple schemes"
+- "Item cannot be used in multiple schemes when one becomes payment"
+
+#Original Task Readme Below:
  
 The task is to implement a stamp card loyalty system of the type seen in many cafes and coffee shops (e.g. buy 4 coffees get the 5th free).
 

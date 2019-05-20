@@ -161,7 +161,7 @@ class LoyaltySpec : StringSpec() {
             response.first().payments shouldHaveSize 0
         }
 
-        "item cannot be used in multiple schemes" {
+        "Item cannot be used in multiple schemes" {
             val schemeId2 = UUID.randomUUID()
             val schemes = listOf<Scheme>(
                 Scheme(schemeId, merchantId, 4, listOf("1")),
@@ -189,7 +189,7 @@ class LoyaltySpec : StringSpec() {
             response.last().payments shouldHaveSize 0
         }
 
-        "item cannot be used in multiple schemes when one becomes payment" {
+        "Item cannot be used in multiple schemes when one becomes payment" {
             val schemeId2 = UUID.randomUUID()
             val schemes = listOf<Scheme>(
                 Scheme(schemeId, merchantId, 0, listOf("1")),
