@@ -47,7 +47,7 @@ class ReceiptApplication(var account: Account, val scheme: Scheme, val receipt: 
             )
 
             this.account.setStampsInactive(this.scheme)
-            this.account.setStampPaid(stamp = cheapestStamp)
+            this.account.setStampRepaid(stamp = cheapestStamp)
         }
     }
 

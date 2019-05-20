@@ -8,7 +8,7 @@ class Account(val id: AccountId) {
     fun getStampsGivenCount(receipt: Receipt): Int {
         return this.stamps.filter { s ->
             s.receiptId == receipt.id &&
-            s.status != "paid"
+            s.status != "repaid"
         }.count()
     }
 
@@ -61,11 +61,11 @@ class Account(val id: AccountId) {
         this.payments.add(payment)
     }
 
-    fun setStampPaid(stamp: Stamp) {
+    fun setStampRepaid(stamp: Stamp) {
         this.stamps.removeAll { s ->
             s.id == stamp.id
         }
-        stamp.status = "paid"
+        stamp.status = "repaid"
         this.stamps.add(stamp)
     }
 
