@@ -1,6 +1,6 @@
 # Flux Loyalty Test
 
-## This mini app is an attempt at the Flux Loyalty Test, the original description of which can be found below.
+### This mini app is an attempt at the Flux Loyalty Test
 
 ## As required:
 - The solution is written in Kotlin (I have not previously coded anything in Java or Kotlin)
